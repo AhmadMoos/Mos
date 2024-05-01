@@ -1,0 +1,51 @@
+<%- include('layout/header') %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 mx-auto mt-4">
+            <div class="card shadow">
+                <div class="card-header bg-success">
+                    <h5 class="text-light">Edit Student (<%= user.name  %>)</h5>
+                </div>
+                <div class="card-body p-4">
+                    <form action="/update/<%= user._id %>" method="post" id="add-form">
+                        <div class="mb-3">
+                            <label for="name">Name</label>
+                            <input type="text" name="name" class="form-control form-control-lg" placeholder="Enter Name" value="<%= user.name %>" required/>
+                        </div>
+                        <div class="mb-3">
+                            <label for="surname">Surname</label>
+                            <input type="text" name="surname" class="form-control form-control-lg" placeholder="Enter Surname" value="<%= user.surname %>" required/>
+                        </div>
+                        <div class="mb-3">
+                            <label for="age">Age</label>
+                            <input type="number" name="age" class="form-control form-control-lg" placeholder="Enter Age" value="<%= user.age %>" required/>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" class="form-control form-control-lg" placeholder="Enter Email" value="<%= user.email %>" required/>
+                        </div>
+                        <div class="mb-3">
+                            <label for="department">Department</label>
+                            <select name="department" class="form-control form-control-lg" required>
+                                <option value="">Select Department</option>
+                                <option value="Medicine" <%= user.department === 'Medicine' ? 'selected' : '' %>>Medicine</option>
+                                <option value="Dentistry" <%= user.department === 'Dentistry' ? 'selected' : '' %>>Dentistry</option>
+                                <option value="Pharmacy" <%= user.department === 'Pharmacy' ? 'selected' : '' %>>Pharmacy</option>
+                                <option value="Civil Engineering" <%= user.department === 'Civil Engineering' ? 'selected' : '' %>>Civil Engineering</option>
+                                <option value="Software Engineering" <%= user.department === 'Software Engineering' ? 'selected' : '' %>>Software Engineering</option>
+                                <option value="Computer Engineering" <%= user.department === 'Computer Engineering' ? 'selected' : '' %>>Computer Engineering</option>
+                                <option value="Architectural Engineering" <%= user.department === 'Architectural Engineering' ? 'selected' : '' %>>Architectural Engineering</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <input type="submit" name="submit" value="Update Student" class="btn btn-success btn-lg" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('layout/footer') %>
